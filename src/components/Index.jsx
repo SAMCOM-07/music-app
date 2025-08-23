@@ -28,7 +28,7 @@ const Index = () => {
 
   return (
     <div className="container mx-auto gridCenter">
-      <div className="bg-[#050551] h-screen w-screen sm:h-[700px] sm:w-[350px] shadow-3xl sm:rounded-3xl relative flex flex-col items-center gap-4 p-4 overflow-hidden">
+      <div className="bg-[#050551] h-screen w-screen md:h-[700px] md:w-[350px] md:shadow-3xl md:rounded-3xl relative flex flex-col items-center gap-4 p-4 overflow-hidden">
         <img
           src={Image}
           alt=""
