@@ -8,5 +8,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/music-app',
+  base: process.env.NODE_ENV === "production" 
+    ? "/music-app/" 
+    : "/",
 });
