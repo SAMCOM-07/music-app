@@ -1,0 +1,60 @@
+@import 'tailwindcss';
+
+
+@theme{
+  --breakpoint-*: initial;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1440px;
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Dives+Akuru&display=swap');
+
+:root{
+  font-family: 'Poppins', 'sans serif';
+  font-weight: 400;
+  font-style: normal;
+} */
+
+
+::-webkit-scrollbar{
+	width: 0px;
+}
+
+button{
+	cursor: pointer;
+}
+
+.progress:after{
+	position: absolute;
+	content: '';
+	width: 15px;
+	height: 15px;
+	background-color: rgb(28, 28, 158);
+	border-radius: 50%;
+	right: -7px;
+	top: -3px;
+}
+
+.rangeThumb::-webkit-slider-runnable-track{
+	appearance: none;
+}
+
+
+@layer base{
+	.h1{
+		@apply text-[32px] font-bold
+	}
+}
+
+@layer utilities {
+.gridCenter {
+	@apply grid place-content-center;
+  }
+
+  .flexCenter {
+	@apply flex items-center justify-center;
+  }
+
+}
