@@ -16,7 +16,7 @@ const Song = ({ song, handleSongChange }) => {
           <h3
           
             className={`${
-              currentSong && currentSong.id === id
+              currentSong && currentSong.id == id
                 ? "text-blue-300 text-2xl"
                 : " text-white"
             } font-bold max-w-[200px] text-xl truncate hover:scale-105 transition-all duration-200`}
