@@ -17,16 +17,16 @@ const Song = ({ song, handleSongChange, currentSong }) => {
           
             className={`${
               currentSong && currentSong.id === id
-                ? "text-blue-300 text-[18px]"
+                ? "text-blue-300 md:text-[18px]"
                 : " text-white"
-            } font-bold max-w-[150px] truncate hover:scale-105 transition-all duration-200`}
+            } font-bold max-w-[200px] text-lg truncate hover:scale-105 transition-all duration-200`}
           >
             {name}
           </h3>
-          <h5 className="text-gray-300 text-xs font-semibold">{artist_name}</h5>
+          <h5 className="text-gray-300 text-xs font-semibold max-w-[200px] truncate">{artist_name}</h5>
         </div>
       </div>
-      <span className="font-bold text-xs text-gray-300">{formatTime(duration)}</span>
+      <span className="font-bold text-sm md:text-xs text-gray-300">{formatTime(duration)}</span>
     </div>
   );
 };

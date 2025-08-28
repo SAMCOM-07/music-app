@@ -52,7 +52,7 @@ const CurrentSong = () => {
     const audio = audioRef.current;
 
     const handleEnded = () => {
-      // setIsPlaying(false);
+      setIsPlaying(false);
       audioRef.current.pause();
       setCurrentSong(songs[currentSongIndex + 1]);
     };
@@ -82,7 +82,7 @@ const CurrentSong = () => {
 
   return (
     <>
-      <div
+      {currentSong && <div
         className={`${
           showDetails ? "hidden" : "block"
         } w-full p-3 bg-gray-100 rounded-3xl absolute bottom-0`}
@@ -94,10 +94,10 @@ const CurrentSong = () => {
               onClick={() => setShowDetails(true)}
               className="cursor-pointer"
             >
-              <h3 className="font-bold text-[#050551] max-w-[150px] truncate">
+              <h3 className="font-bold text-[#050551] max-w-[200px] truncate">
                 {name}
               </h3>
-              <h5 className="text-gray-400 text-xs font-semibold">{artist_name}</h5>
+              <h5 className="text-gray-400 text-xs font-semibold max-w-[200px] truncate">{artist_name}</h5>
             </div>
           </div>
           {/* the audio file */}
@@ -106,7 +106,9 @@ const CurrentSong = () => {
             {isPlaying ? <FaPause className='text-blue-900 text-xl' /> : <FaPlay className='text-blue-900'/>}
           </button>
         </div>
-      </div>
+      </div>}
+
+           {/* showing details */}
 
       <div
         className={`${
@@ -120,13 +122,13 @@ const CurrentSong = () => {
           <FaTimes />
         </button>
         <div className="p-6 rounded-3xl bg-white h-[75%] w-full mt-8 flex flex-col gap-4">
-          <img src={image} alt="" className="w-full h-[300px] rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.3)]" />
+          <img src={image} alt="" className="rounded-xl shadow-[0_0_10px_rgba(0,0,0,0.3)]" />
           <div className="flex flex-row gap-4 items-center justify-between">
             <div>
-              <h3 className="font-bold text-[#050551] text-lg max-w-[150px] truncate">
+              <h3 className="font-bold text-[#050551] text-lg max-w-[200px] truncate">
                 {name}
               </h3>
-              <h5 className="text-gray-400 text-xs font-semibold">{artist_name}</h5>
+              <h5 className="text-gray-400 text-xs font-semibold max-w-[200px] truncate">{artist_name}</h5>
             </div>
             <button className="text-lg">❤</button>
           </div>
@@ -185,7 +187,7 @@ const CurrentSong = () => {
         </div>
       </div>
     </>
-    // showing details
+   
   );
 };
 

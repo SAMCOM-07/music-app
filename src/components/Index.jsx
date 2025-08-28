@@ -4,7 +4,6 @@ import CurrentSong from "./CurrentSong.jsx";
 import { MusicContext } from "../contexts/MusicContext";
 
 const Index = () => {
-  const [currentSong, setCurrentSong] = useState(null);
 
   const {
     Image,
@@ -15,11 +14,14 @@ const Index = () => {
     isLoading,
     errorMsg,
     setMusicType,
+    currentSong,
+    setCurrentSong,
   } = useContext(MusicContext);
 
   const handleSongChange = (getIndex) => {
     setCurrentSong(songs[getIndex]);
     setIsPlaying(true);
+    // audioRef.current.play();
   };
 
   useEffect(() => {
@@ -28,18 +30,18 @@ const Index = () => {
 
   return (
     <div className="container mx-auto gridCenter">
-      <div className="bg-[#050551] h-screen w-screen md:h-[700px] md:w-[350px] md:shadow-3xl md:rounded-3xl relative flex flex-col items-center gap-4 p-4 overflow-hidden">
+      <div className="bg-[#050551] h-dvh w-screen sm:h-[700px] sm:w-[350px] sm:shadow-3xl sm:rounded-3xl relative flex flex-col items-center gap-4 p-4 overflow-hidden">
         <img
           src={Image}
           alt=""
-          className="w-[120px] h-[120px] rounded-xl mt-4"
+          className="w-[150px] h-[150px] md:w-[150px] md:h-[150px] rounded-xl mt-4"
         />
 
         <div className="w-full text-center flex flex-row items-center justify-between">
-          <h1 className="font-bold text-white text-lg">
+          <h1 className="font-bold text-white text-xl md:text-lg">
             Music Desk {new Date().getFullYear()}
           </h1>
-          <span className="text-gray-300 font-bold">{songs.length} Songs</span>
+          <span className="text-gray-300 text-xl md:text-base font-bold">{songs.length} Songs</span>
         </div>
 
         <div className="space-x-4 border-t-2 border-gray-500 w-full pt-4 text-center">
@@ -48,7 +50,7 @@ const Index = () => {
               setMusicType("")
               setCount(0)
             }}
-            className="py-0.5 px-3 bg-white rounded-xl font-semibold text-[#050551] hover:scale-95 hover:opacity-65"
+            className="py-1 px-4 text-lg bg-white rounded-xl font-semibold text-[#050551] hover:scale-95 hover:opacity-65"
           >
             All
           </button>
@@ -57,7 +59,7 @@ const Index = () => {
               setMusicType("gospel")
               setCount(0)
             }}
-            className="py-0.5 px-3 bg-white rounded-xl font-semibold text-[#050551] hover:scale-95 hover:opacity-65"
+            className="py-1 px-4 text-lg bg-white rounded-xl font-semibold text-[#050551] hover:scale-95 hover:opacity-65"
           >
             Gospel
           </button>
@@ -66,7 +68,7 @@ const Index = () => {
               setMusicType("hiphop")
               setCount(0)
             }}
-            className="py-0.5 px-3 bg-white rounded-xl font-semibold text-[#050551] hover:scale-95 hover:opacity-65"
+            className="py-1 px-4 text-lg bg-white rounded-xl font-semibold text-[#050551] hover:scale-95 hover:opacity-65"
           >
             Hip-Hop
           </button>

@@ -17,8 +17,6 @@ const Context = ({ children }) => {
 
   const myId = "a36292b3";
 
-  // const isChanged = musicType === 'gospel' || musicType === 'hiphop';
-
   useEffect(() => {
     async function fectSongs() {
       try {
@@ -30,18 +28,17 @@ const Context = ({ children }) => {
         const data = await response.json();
         if (data && data?.results) {
           setSongs((prev) =>
-              count <= 0
-              ? [...data.results]
-              : [...prev, ...data.results]
+            count <= 0 ? [...data.results] : [...prev, ...data.results]
           );
-          setCurrentSong(data.results[0]);
+          count <= 0 && setCurrentSong(null);
           setIsLoading(false);
+          // console.log(data.results);
         }
       } catch (error) {
         setErrorMsg("Error loading songs. Check internet connection");
         setIsLoading(false);
         console.log(error.message);
-      } 
+      }
       // finally {
       //   if (count <= 0) {
       //       console.log("songs loaded");
@@ -55,10 +52,10 @@ const Context = ({ children }) => {
   }, [count, musicType]);
 
   function handlePlay() {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
+    if (!isPlaying) {
       audioRef.current.play();
+    } else {
+      audioRef.current.pause();
     }
     setIsPlaying((prev) => !prev);
     // console.log(isPlaying)
