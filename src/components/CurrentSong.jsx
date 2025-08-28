@@ -52,8 +52,8 @@ const CurrentSong = () => {
     const audio = audioRef.current;
 
     const handleEnded = () => {
-      setIsPlaying(false);
-      audioRef.current.pause();
+      // setIsPlaying(true);
+      // audioRef.current.pause();
       setCurrentSong(songs[currentSongIndex + 1]);
     };
 
@@ -138,7 +138,7 @@ const CurrentSong = () => {
             <div className="flex flex-row items-center gap-4">
               <button
                 onClick={() => (audioRef.current.currentTime -= 10)}
-                className="mt-4 text-gray-600 text-xl"
+                className="mt-4 text-gray-600 text-2xl"
               >
                 <TbRewindBackward10 />
               </button>
@@ -154,7 +154,7 @@ const CurrentSong = () => {
               </div>
               <button
                 onClick={() => (audioRef.current.currentTime += 10)}
-                 className="text-gray-600 text-xl mt-4"
+                 className="text-gray-600 text-2xl mt-4"
               >
                 <TbRewindForward10/>
               </button>
@@ -174,13 +174,13 @@ const CurrentSong = () => {
           </div>
 
           <div className="flex flex-row items-center self-center gap-4">
-            <button className='text-gray-600 text-xl' onClick={handlePrev}>
+            <button className='text-gray-600 text-2xl' onClick={handlePrev}>
               <IoPlayBack/>
             </button>
-            <button onClick={handlePlay} className='text-blue-900 text-xl' >
+            <button onClick={handlePlay} className='text-blue-900 text-2xl' >
               {isPlaying ? <FaPause /> : <FaPlay/>}
             </button>
-            <button className='text-gray-600 text-xl' onClick={handleNext}>
+            <button className='text-gray-600 text-2xl' onClick={handleNext}>
               <IoPlayForward/>
             </button>
           </div>

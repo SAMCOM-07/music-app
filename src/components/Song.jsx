@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { MusicContext } from "./../contexts/MusicContext.jsx";
 
-const Song = ({ song, handleSongChange, currentSong }) => {
+const Song = ({ song, handleSongChange }) => {
   const { id, name, duration, artist_name, image } = song;
 
-  const { formatTime } = useContext(MusicContext);
+  const { formatTime, currentSong } = useContext(MusicContext);
 
   
   
