@@ -17,7 +17,7 @@ const Song = ({ song, handleSongChange }) => {
           
             className={`${
               currentSong && currentSong.id === id
-                ? "text-blue-300 text-[18px]"
+                ? "text-blue-300 text-2xl"
                 : " text-white"
             } font-bold max-w-[200px] text-lg truncate hover:scale-105 transition-all duration-200`}
           >
